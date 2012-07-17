@@ -28,6 +28,7 @@ setup(name='experimental.flavors',
           'setuptools',
           'plone.dexterity',
           'plone.behavior',
+          'z3c.autoinclude',
           'Products.CMFPlone',
           # -*- Extra requirements: -*-
       ],
