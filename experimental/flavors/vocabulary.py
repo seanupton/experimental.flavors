@@ -1,9 +1,7 @@
 from five import grok
-from zope.interface import implements, providedBy
-from zope.interface.interfaces import IInterface
+from zope.interface import providedBy
 from zope.component import getUtilitiesFor
 from zope.schema import getFieldNamesInOrder
-from zope.schema.fieldproperty import FieldProperty
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
@@ -28,5 +26,5 @@ def available_flavors(context):
         _term(name, flavor.title or name) for name, flavor in enumerated
             if context_ifaces.intersection(flavor.interfaces)
         ]
-    return vocab
+    return SimpleVocabulary(vocab)
 
