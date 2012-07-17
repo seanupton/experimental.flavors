@@ -1,11 +1,23 @@
 <configure
   xmlns="http://namespaces.zope.org/zope"
-  xmlns:cmf="http://namespaces.zope.org/cmf"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  xmlns:grok="http://namespaces.zope.org/grok"
   xmlns:five="http://namespaces.zope.org/five">
  
   <!-- Include configuration for dependencies listed in setup.py -->
   <includeDependencies package="." />
 
   <five:registerPackage package="." initialize=".zope2.initialize" />
+
+  <!-- Grok package: initialise component declarations (used in vocab) -->
+  <grok:grok package="." />
+
+  <plone:behavior
+    title="Flavor awareness"
+    description="Ability to assign flavors to content item."
+    provides=".interfaces.IFlavors"
+    factory="plone.behavior.AnnotationStorage"
+    marker=".interface.IFlavorAware"
+    />
 
 </configure>
