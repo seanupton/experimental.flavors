@@ -1,0 +1,4 @@
+include *.txt docs/*.txt
+recursive-include experimental/ *
+global-exclude *.pyc
+
