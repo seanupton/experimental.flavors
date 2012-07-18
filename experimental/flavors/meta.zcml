@@ -1,0 +1,13 @@
+<configure
+  xmlns="http://namespaces.zope.org/meta"
+  i18n_domain="experimental.flavors">
+  
+  <directives namespace="http://namespaces.plone.org/plone">
+    <directive
+      name="flavor"
+      schema=".metaconfigure.IFlavorDirective"
+      handler=".metaconfigure.flavorDirective"
+      />
+  </directives>
+  
+</configure>
