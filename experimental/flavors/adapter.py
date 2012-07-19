@@ -20,12 +20,11 @@ class FlavorBehaviorAssignable(DexterityBehaviorAssignable):
     
     def __init__(self, context):
         self.flavor_names = []
-        KEY = 'experimental.flavors.interfaces.IFlavors.content_flavors'
         self.context = context
         super(FlavorBehaviorAssignable, self).__init__(context)
         anno = IAnnotations(context)
-        if KEY in anno:
-            self.flavor_names = list(anno.get(KEY))
+        if interfaces.FLAVORS_KEY in anno:
+            self.flavor_names = list(anno.get(interfaces.FLAVORS_KEY))
     
     def enumerateBehaviors(self):
         behaviors = list(self.fti.behaviors) + self.flavor_names

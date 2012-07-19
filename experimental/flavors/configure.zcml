@@ -25,4 +25,10 @@
 
   <adapter factory=".adapter.FlavorBehaviorAssignable" />
 
+  <subscriber
+    for=".interfaces.IFlavorAware
+         zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+    handler=".handler.flavor_aware_sync_flavors"
+    />
+
 </configure>

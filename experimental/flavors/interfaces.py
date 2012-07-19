@@ -7,6 +7,10 @@ from plone.directives import form
 from vocabulary import available_flavors
 
 
+PKGNAME = 'experiemental.flavors'
+FLAVORS_KEY = '.'.join((PKGNAME, 'content_flavors'))  # annotation key name
+
+
 class IFlavors(form.Schema):
     """
     Behavior for marking configured flavors.  It is informally assumed
