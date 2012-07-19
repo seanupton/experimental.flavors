@@ -1,6 +1,10 @@
 from zope.interface import Interface
 from zope import schema
 from zope.configuration import fields as config_fields
+from zope.component.zcml import utility
+
+from interfaces import IFlavor, IFlavorAware
+from info import FlavorInfo
 
 
 class IFlavorDirective(Interface):
@@ -59,13 +63,14 @@ def flavorDirective(
         for_=None,
         icon=None,
         ):
-    import pdb; pdb.set_trace()
-
     info = FlavorInfo(behavior)
     info.title = title
     info.description = description
     info.icon = icon
-    info.interfaces = for_
+    if for_:
+        info.interfaces = for_
+    else:
+        info.interfaces = (IFlavorAware,)
     
     # register a utility, used in vocabularies of flavors:
     utility(

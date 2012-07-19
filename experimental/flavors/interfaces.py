@@ -1,4 +1,4 @@
-from zope.interface import Interface
+from zope.interface import Interface, alsoProvides
 from zope.interface.interfaces import IInterface
 from zope import schema
 from plone.dexterity.interfaces import IDexterityContent
@@ -21,10 +21,10 @@ class IFlavors(form.Schema):
     form.fieldset(
         'settings',
         label='Settings',
-        fields=['content_flavors'],
+        fields=('content_flavors',),
         )
     
-    flavors = schema.Tuple(
+    content_flavors = schema.Tuple(
         title=u'Content Flavors',
         description=u'Bind flavors of additional behaviors and fields to '\
                     u'this content item.',
@@ -32,7 +32,11 @@ class IFlavors(form.Schema):
             source=available_flavors,
             ),
         default=(),
+        required=False,
         )
+
+
+alsoProvides(IFlavors, form.IFormFieldProvider)
 
 
 class IFlavorAware(Interface):

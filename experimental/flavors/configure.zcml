@@ -12,6 +12,9 @@
   <!-- Grok package: initialise component declarations (used in vocab) -->
   <grok:grok package="." />
 
+  <!-- include common and/or stock flavors -->
+  <include package=".common" />
+
   <plone:behavior
     title="Flavor awareness"
     description="Ability to assign flavors to content item."
@@ -19,5 +22,7 @@
     factory="plone.behavior.AnnotationStorage"
     marker=".interfaces.IFlavorAware"
     />
+
+  <adapter factory=".adapter.FlavorBehaviorAssignable" />
 
 </configure>

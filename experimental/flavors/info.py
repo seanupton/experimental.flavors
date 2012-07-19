@@ -18,9 +18,10 @@ class FlavorInfo(object):
     interfaces = FieldProperty(interfaces.IFlavor['interfaces'])
     
     def __init__(self, schema, **kwargs):
-        self.identifier = str(schema)
         if IInterface.providedBy(schema):
-            self.identifier = self.schema.__identifier__
+            self.identifier = schema.__identifier__
+        else:
+            self.identifier = str(schema)
         for name in getFieldNamesInOrder(interfaces.IFlavor):
             if name in kwargs:
                 setattr(self, name, kwargs.get(name))

@@ -1,0 +1,12 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  xmlns:grok="http://namespaces.zope.org/grok"
+  xmlns:five="http://namespaces.zope.org/five">
+
+  <plone:flavor
+    title="Standard publication metadata"
+    behavior="plone.app.dexterity.behaviors.metadata.IPublication"
+    />
+
+</configure>
