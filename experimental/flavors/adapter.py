@@ -31,7 +31,6 @@ class FlavorBehaviorAssignable(DexterityBehaviorAssignable):
         behaviors = list(self.fti.behaviors) + self.flavor_names
         for name in behaviors:
             behavior = queryUtility(IBehavior, name=name)
-            print name, behavior
             if behavior is not None:
                 yield behavior
 
